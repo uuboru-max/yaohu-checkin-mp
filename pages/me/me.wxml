@@ -1,0 +1,11 @@
+<view class="wrap">
+  <view class="header">
+    <view class="title">{{copy.title}}</view>
+    <view class="lang">
+      <view class="lang-btn {{locale === 'zh' ? 'lang-on' : ''}}" data-lang="zh" bindtap="setLang">中</view>
+      <view class="lang-btn {{locale === 'en' ? 'lang-on' : ''}}" data-lang="en" bindtap="setLang">EN</view>
+    </view>
+  </view>
+  <view class="card"><view class="h2">{{copy.about}}</view><view class="muted">{{copy.notesHint}}</view></view>
+  <view class="card"><view class="h2">{{copy.notes}}</view><textarea class="textarea" value="{{profile}}" bindinput="onProfile" maxlength="500" /></view>
+</view>

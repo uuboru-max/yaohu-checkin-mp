@@ -1,0 +1,16 @@
+<view class="wrap">
+  <view class="card">
+    <view class="h2">{{copy.pain7}}</view>
+    <view class="chart">
+      <view wx:for="{{bars}}" wx:key="date" class="col" style="height: {{item.h}}rpx;"></view>
+    </view>
+    <view class="muted">{{datesLabel}}</view>
+    <view class="btns"><button class="btn" bindtap="onExport">{{copy.export}}</button></view>
+  </view>
+  <view class="card">
+    <view class="log-item" wx:for="{{rows}}" wx:key="date">
+      <view>{{item.date}}</view>
+      <view class="muted">{{item.line}}</view>
+    </view>
+  </view>
+</view>
