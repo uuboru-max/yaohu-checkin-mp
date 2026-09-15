@@ -6,6 +6,20 @@
       <view class="lang-btn {{locale === 'en' ? 'lang-on' : ''}}" data-lang="en" bindtap="setLang">EN</view>
     </view>
   </view>
-  <view class="card"><view class="h2">{{copy.about}}</view><view class="muted">{{copy.notesHint}}</view></view>
-  <view class="card"><view class="h2">{{copy.notes}}</view><textarea class="textarea" value="{{profile}}" bindinput="onProfile" maxlength="500" /></view>
+  <view class="card">
+    <view class="h2">{{copy.about}}</view>
+    <view class="muted">{{copy.notesHint}}</view>
+  </view>
+  <view class="card">
+    <view class="h2">{{copy.vocab}}</view>
+    <view class="muted">{{copy.vocabHint}}</view>
+    <view wx:for="{{vocab}}" wx:key="en" class="log-item">
+      <view class="name">{{item.en}}</view>
+      <view class="muted">{{item.zh}} · {{item.say}}</view>
+    </view>
+  </view>
+  <view class="card">
+    <view class="h2">{{copy.notes}}</view>
+    <textarea class="textarea" value="{{profile}}" bindinput="onProfile" maxlength="500" />
+  </view>
 </view>
