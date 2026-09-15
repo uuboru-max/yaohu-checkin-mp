@@ -1,5 +1,5 @@
 const { COPY, TASKS } = require("../../utils/data");
-const { load, lastN, exportExcel } = require("../../utils/store");
+const { load, lastN, exportExcel, applyTabBar } = require("../../utils/store");
 
 Page({
   data: { copy: COPY.zh, bars: [], rows: [], datesLabel: "" },
@@ -27,6 +27,7 @@ Page({
       rows,
       datesLabel: days.map((d) => d.slice(5)).join("  "),
     });
+    applyTabBar(loc);
   },
   onExport() {
     exportExcel(load());

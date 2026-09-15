@@ -1,5 +1,5 @@
 const { COPY } = require("../../utils/data");
-const { load, save, todayStr, ensureDay, viewTasks } = require("../../utils/store");
+const { load, save, todayStr, ensureDay, viewTasks, applyTabBar } = require("../../utils/store");
 
 Page({
   data: {
@@ -29,7 +29,7 @@ Page({
       pct: Math.round((rec.n / 7) * 100),
       tasks: viewTasks(state),
     });
-    wx.setNavigationBarTitle({ title: COPY[loc].title });
+    applyTabBar(loc);
   },
   setLang(e) {
     const state = load();
@@ -50,7 +50,8 @@ Page({
   onToggle(e) {
     const state = load();
     const rec = ensureDay(state, todayStr());
-    rec.tasks[e.detail.id] = !rec.tasks[e.detail.id];
+    const id = e.detail.id;
+    rec.tasks[id] = !rec.tasks[id];
     save(state);
     this.refresh();
   },
