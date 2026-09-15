@@ -117,7 +117,7 @@ const COPY = {
     walk: "一次能走（分钟）",
     guide: "动作指导和注意",
     poseHint: "对照动图做，痛就减小幅度",
-    safety: "安全停",
+    safety: "何时停止",
     safetyBody:
       "力弱、会阴麻、小便变差：停练并联系医生。练完 30 分钟腿痛加重：今天减量。",
     export: "导出 Excel",
