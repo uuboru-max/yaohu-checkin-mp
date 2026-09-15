@@ -1,0 +1,4 @@
+{
+  "desc": "腰护打卡",
+  "rules": [{ "action": "allow", "page": "*" }]
+}
