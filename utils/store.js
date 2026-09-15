@@ -1,4 +1,5 @@
 const { TASKS, COPY } = require("./data");
+const TABS = require("./tabs");
 const KEY = "yaohu-mp-v1";
 
 function todayStr() {
@@ -158,12 +159,12 @@ function exportExcel(state) {
 
 function applyTabBar(locale) {
   const loc = locale === "en" ? "en" : "zh";
-  const c = COPY[loc];
-  const labels = [c.tabToday, c.tabMoves, c.tabLog, c.tabMe];
-  labels.forEach((text, index) => {
+  (TABS[loc] || TABS.zh).forEach((text, index) => {
     wx.setTabBarItem({ index, text });
   });
-  wx.setNavigationBarTitle({ title: c.title });
+  wx.setNavigationBarTitle({
+    title: (COPY[loc] && COPY[loc].title) || (loc === "en" ? "Lumbar Check-in" : "腰护打卡"),
+  });
 }
 
 module.exports = { todayStr, load, save, ensureDay, lastN, csvText, viewTasks, exportExcel, applyTabBar };
