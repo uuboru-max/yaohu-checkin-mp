@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#000000"/>
+  <defs>
+    <clipPath id="tile"><rect x="61" y="61" width="902" height="902" rx="236" ry="236"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="1024" height="1024" fill="#FFFFFF"/>
+    <g transform="translate(512,512) rotate(-45)">
+      <g transform="translate(0,173)">
+        <rect x="-87" y="-253" width="174" height="506" fill="#6CC1FD"/>
+        <rect x="-261" y="-87" width="348" height="174" fill="#6CC1FD"/>
+      </g>
+      <g transform="translate(0,-173)">
+        <rect x="-87" y="-253" width="174" height="506" fill="#6CC1FD"/>
+        <rect x="-87" y="-87" width="348" height="174" fill="#6CC1FD"/>
+      </g>
+    </g>
+  </g>
+</svg>
