@@ -1,5 +1,6 @@
 const { COPY, TASKS } = require("../../utils/data");
-const { load, lastN, csvText } = require("../../utils/store");
+const { load, lastN, exportExcel } = require("../../utils/store");
+
 Page({
   data: { copy: COPY.zh, bars: [], rows: [], datesLabel: "" },
   onShow() {
@@ -14,13 +15,20 @@ Page({
       const h = state.hist[d];
       if (!h) return { date: d, line: COPY[loc].noRecord };
       const n = TASKS.filter((t) => h.tasks && h.tasks[t.id]).length;
-      const line = loc === "zh" ? `痛 ${h.pain || "-"} · 走 ${h.walk || "-"} 分钟 · 完成 ${n}/7` : `Pain ${h.pain || "-"} · Walk ${h.walk || "-"} min · Done ${n}/7`;
+      const line =
+        loc === "zh"
+          ? `痛 ${h.pain || "-"} · 走 ${h.walk || "-"} 分钟 · 完成 ${n}/7`
+          : `Pain ${h.pain || "-"} · Walk ${h.walk || "-"} min · ${n}/7 completed`;
       return { date: d, line };
     });
-    this.setData({ copy: COPY[loc], bars, rows, datesLabel: days.map((d) => d.slice(5)).join("  ") });
+    this.setData({
+      copy: COPY[loc],
+      bars,
+      rows,
+      datesLabel: days.map((d) => d.slice(5)).join("  "),
+    });
   },
   onExport() {
-    const state = load();
-    wx.setClipboardData({ data: csvText(state), success: () => wx.showToast({ title: COPY[state.locale === "en" ? "en" : "zh"].copied, icon: "none" }) });
-  }
+    exportExcel(load());
+  },
 });
