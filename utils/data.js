@@ -130,8 +130,6 @@ const COPY = {
     notes: "我的情况（可改）",
     notesHint: "数据只存在本机微信。这是打卡工具，不能代替医嘱。",
     about: "腰椎保护期打卡工具。",
-    vocab: "学这几句英文",
-    vocabHint: "对照中文记。做动作时大声读一遍。",
   },
   en: {
     tagline: "Protection-phase rehab · not a medical diagnosis",
@@ -154,22 +152,7 @@ const COPY = {
     notesHint:
       "Saved only on this phone in WeChat. This is a check-in tool, not a substitute for medical advice.",
     about: "A check-in tool for the lumbar protection phase.",
-    vocab: "Learn these English phrases",
-    vocabHint: "Read the English out loud when you do each move.",
   },
 };
 
-const VOCAB = [
-  { en: "lumbar", zh: "腰椎", say: "LUM-bar" },
-  { en: "check-in", zh: "打卡", say: "CHEK-in" },
-  { en: "protection phase", zh: "保护期", say: "pro-TEK-shun faze" },
-  { en: "diaphragmatic breathing", zh: "腹式呼吸", say: "dye-uh-frag-MAT-ik" },
-  { en: "pelvic tilt", zh: "骨盆微动", say: "PEL-vik tilt" },
-  { en: "ankle pumps", zh: "勾脚绷脚", say: "ANK-ul pumps" },
-  { en: "glute squeeze", zh: "勾臀", say: "GLOOT squeeze" },
-  { en: "clamshell", zh: "蛤壳动作", say: "CLAM-shell" },
-  { en: "numbness", zh: "麻", say: "NUM-ness" },
-  { en: "as prescribed", zh: "按医嘱", say: "az pre-SCRYBD" },
-];
-
-module.exports = { TASKS, FORBIDDEN, COPY, VOCAB };
+module.exports = { TASKS, FORBIDDEN, COPY };
