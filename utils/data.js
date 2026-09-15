@@ -4,7 +4,7 @@ const TASKS = [
   {
     id: "breath",
     photo: PHOTOS.breath,
-    zh: { name: "躺着腹式呼吸", dose: "1 分钟", how: ["仰卧屈膝，脚平放。", "鼻子吸气肚子鼓。", "嘴慢慢吐，肩不耸。"], tip: "用来放松，不要憋气。" },
+    zh: { name: "躺着腹式呼吸", dose: "1 分钟", how: ["仰卧屈膝，脚平放。", "鼻子吸气肚子鼓。", "嘴慢慢吐，肩不耺。"], tip: "用来放松，不要愤气。" },
     en: {
       name: "Diaphragmatic breathing",
       dose: "1 minute",
@@ -64,7 +64,7 @@ const TASKS = [
   {
     id: "clam",
     photo: PHOTOS.clam,
-    zh: { name: "侧躺开蛤壳", dose: "每边 8 次", how: ["侧躺，膝髋微屈，脚并拢。", "上膝张开 10–15 厘米。", "腰不要转。"], tip: "后背可靠墙。" },
+    zh: { name: "侧躺开蛤壳", dose: "每边 8 次", how: ["侧躺，膝髋微屈，脚并拢。", "上膝开张 10–15 厘米。", "腰不要转。"], tip: "后背可靠墙。" },
     en: {
       name: "Side-lying clamshell",
       dose: "8 per side",
@@ -98,20 +98,20 @@ const TASKS = [
     en: {
       name: "Take medication as prescribed",
       dose: "As prescribed",
-      how: ["Follow your clinic’s instructions.", "Do not increase the dose on your own."],
+      how: ["Follow your clinic's instructions.", "Do not increase the dose on your own."],
       tip: "Injections and nerve blocks must be done in clinic.",
     },
   },
 ];
 
 const FORBIDDEN = {
-  zh: "保护期不做：仰卧起坐、久平板、俯卧两头起、大力后伸、扭转、跑跳、搬重物。",
-  en: "During the protection phase, avoid: sit-ups, long planks, prone back extensions, forceful lumbar extension, twisting, running or jumping, and heavy lifting.",
+  zh: "发作期不做：仰卧起坐、久平板、俯卧两头起、大力后伸、扭转、跑跳、搬重物。",
+  en: "During a flare, avoid: sit-ups, long planks, prone back extensions, forceful lumbar extension, twisting, running or jumping, and heavy lifting.",
 };
 
 const COPY = {
   zh: {
-    tagline: "保护期康复 · 非医疗诊断",
+    tagline: "发作期康复 · 非医疗诊断",
     title: "腰护打卡",
     pain: "躺着腿痛 0–10",
     walk: "一次能走（分钟）",
@@ -129,29 +129,37 @@ const COPY = {
     noRecord: "无记录",
     notes: "我的情况（可改）",
     notesHint: "数据只存在本机微信。这是打卡工具，不能代替医嘱。",
-    about: "腰椎保护期打卡工具。",
+    about: "腰椎发作期打卡工具。",
+    tabToday: "今日",
+    tabMoves: "动作",
+    tabLog: "记录",
+    tabMe: "我的",
   },
   en: {
-    tagline: "Protection-phase rehab · not a medical diagnosis",
+    tagline: "Flare-phase rehab · not a diagnosis",
     title: "Lumbar Check-in",
-    pain: "Leg pain while lying down (0–10)",
-    walk: "Minutes walked (one bout)",
-    guide: "How to do it & cautions",
-    poseHint: "Match the looping demo. Reduce the range if pain increases.",
+    pain: "Leg pain when lying down (0–10)",
+    walk: "Minutes walked (one session)",
+    guide: "How to do it, and cautions",
+    poseHint: "Follow the demo. If pain increases, use a smaller movement.",
     safety: "When to stop",
     safetyBody:
-      "Weakness, saddle numbness, or bladder changes: stop and contact a doctor. If leg pain is worse 30 minutes after exercise, cut today’s volume.",
+      "Weakness, numbness in the saddle area, or a change in bladder control: stop and contact a doctor. If leg pain is worse 30 minutes after you finish, do less today.",
     export: "Export Excel",
     reset: "Clear today",
-    resetConfirm: "Clear today’s check-in?",
-    copied: "Copied. You can paste it into Excel.",
-    exported: "Excel file ready. Open with WPS or Excel, or forward it.",
+    resetConfirm: "Clear today's check-in?",
+    copied: "Copied. You can paste this into Excel.",
+    exported: "Excel file ready. Open it in WPS or Excel, or forward it.",
     pain7: "Lying-down pain, last 7 days",
     noRecord: "No record",
-    notes: "My notes (editable)",
+    notes: "My notes (you can edit this)",
     notesHint:
-      "Saved only on this phone in WeChat. This is a check-in tool, not a substitute for medical advice.",
-    about: "A check-in tool for the lumbar protection phase.",
+      "Saved only on this phone, in WeChat. This is a check-in tool, not a substitute for medical advice.",
+    about: "A check-in tool for a lumbar flare.",
+    tabToday: "Today",
+    tabMoves: "Exercises",
+    tabLog: "History",
+    tabMe: "Me",
   },
 };
 
