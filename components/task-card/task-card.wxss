@@ -1,6 +1,23 @@
-.card { background: #fffdf8; border: 1rpx solid #e4ddd0; border-radius: 24rpx; padding: 28rpx; margin-bottom: 20rpx; }
+.card {
+  background: #fffdf8;
+  border: 1rpx solid #e4ddd0;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+}
 .task { display: flex; gap: 20rpx; }
-.check { width: 80rpx; height: 80rpx; border-radius: 12rpx; border: 2rpx solid #e4ddd0; background: #f4f1ea; text-align: center; line-height: 76rpx; font-size: 36rpx; color: #fffdf8; flex-shrink: 0; }
+.check {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  border: 2rpx solid #e4ddd0;
+  background: #f4f1ea;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 36rpx;
+  color: #fffdf8;
+  flex-shrink: 0;
+}
 .check.on { background: #1c4f4a; border-color: #1c4f4a; }
 .meta { flex: 1; }
 .name { font-weight: 600; font-size: 30rpx; }
@@ -8,7 +25,8 @@
 .dose { color: #1c4f4a; font-size: 26rpx; }
 .guide { margin-top: 16rpx; color: #1c4f4a; font-size: 26rpx; }
 .pose { margin-top: 16rpx; border-radius: 16rpx; overflow: hidden; background: #e8f0ed; }
-.pose image { width: 100%; height: 280rpx; display: block; }
+.pose image { width: 100%; height: 420rpx; display: block; }
 .body { padding: 20rpx; font-size: 26rpx; }
 .hint { color: #66736f; margin-bottom: 8rpx; }
+.step { margin: 6rpx 0; }
 .warn { color: #8a4b12; margin-top: 8rpx; }
