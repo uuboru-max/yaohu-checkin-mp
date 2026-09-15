@@ -5,19 +5,22 @@ function todayStr() {
   const p = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }).split(/[/-]/);
   if (p.length === 3) return p[0] + "-" + p[1].padStart(2, "0") + "-" + p[2].padStart(2, "0");
   const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return y + "-" + m + "-" + day;
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 }
 
 function load() {
   const raw = wx.getStorageSync(KEY);
   if (raw && typeof raw === "object") return raw;
-  return { locale: "zh", profile: "双侧 L4 峡部裂，暂无滑脱；去年 PELD；右腿休息痛/麻。", hist: {} };
+  return {
+    locale: "zh",
+    profile: "双侧 L4 峡部裂，暂无滑脱；去年 PELD；右腿休息痛/麻。",
+    hist: {},
+  };
 }
 
-function save(state) { wx.setStorageSync(KEY, state); }
+function save(state) {
+  wx.setStorageSync(KEY, state);
+}
 
 function ensureDay(state, date) {
   if (!state.hist[date]) state.hist[date] = { pain: "", walk: "", tasks: {} };
@@ -68,8 +71,69 @@ function viewTasks(state) {
     dose: task[loc].dose,
     how: task[loc].how,
     tip: task[loc].tip,
-    checked: Boolean(rec.tasks[task.id])
+    checked: Boolean(rec.tasks[task.id]),
   }));
 }
 
-module.exports = { todayStr, load, save, ensureDay, lastN, csvText, viewTasks };
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&" + "amp;")
+    .replace(/</g, "&" + "lt;")
+    .replace(/>/g, "&" + "gt;")
+    .replace(/"/g, "&" + "quot;");
+}
+
+function excelHtml(state) {
+  const loc = state.locale === "en" ? "en" : "zh";
+  const c = COPY[loc];
+  const yes = loc === "zh" ? "是" : "Yes";
+  const no = loc === "zh" ? "否" : "No";
+  const names = [loc === "zh" ? "日期" : "Date", c.pain, c.walk, loc === "zh" ? "完成" : "Completed"]
+    .concat(TASKS.map((t) => t.zh.name + " / " + t.en.name))
+    .concat([c.notes]);
+  const dates = Object.keys(state.hist).sort();
+  const td = todayStr();
+  if (dates.indexOf(td) < 0) dates.push(td);
+  const header = names.map((n) => "<th>" + escapeHtml(n) + "</th>").join("");
+  const body = dates.map((d) => {
+    const h = state.hist[d] || { pain: "", walk: "", tasks: {} };
+    const n = TASKS.filter((t) => h.tasks && h.tasks[t.id]).length;
+    const cells = [d, h.pain || "", h.walk || "", n];
+    TASKS.forEach((t) => cells.push(h.tasks && h.tasks[t.id] ? yes : no));
+    cells.push(d === td ? state.profile : "");
+    return "<tr>" + cells.map((v) => "<td>" + escapeHtml(v) + "</td>").join("") + "</tr>";
+  }).join("");
+  return "\uFEFF<html xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:x=\"urn:schemas-microsoft-com:office:excel\"><head><meta charset=\"UTF-8\"></head><body><table border=\"1\"><tr>" + header + "</tr>" + body + "</table></body></html>";
+}
+
+function exportExcel(state) {
+  const loc = state.locale === "en" ? "en" : "zh";
+  const c = COPY[loc];
+  const name = loc === "zh" ? "腰护打卡_" + todayStr() + ".xls" : "lumbar-checkin_" + todayStr() + ".xls";
+  const path = wx.env.USER_DATA_PATH + "/" + name;
+  const fallback = function () {
+    wx.setClipboardData({
+      data: csvText(state),
+      success: function () { wx.showToast({ title: c.copied, icon: "none" }); },
+    });
+  };
+  wx.getFileSystemManager().writeFile({
+    filePath: path,
+    encoding: "utf8",
+    data: excelHtml(state),
+    success: function () {
+      wx.openDocument({
+        filePath: path,
+        fileType: "xls",
+        showMenu: true,
+        success: function () { wx.showToast({ title: c.exported, icon: "none" }); },
+        fail: function () {
+          wx.shareFileMessage({ filePath: path, fileName: name, fail: fallback });
+        },
+      });
+    },
+    fail: fallback,
+  });
+}
+
+module.exports = { todayStr, load, save, ensureDay, lastN, csvText, viewTasks, exportExcel };
