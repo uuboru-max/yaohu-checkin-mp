@@ -116,7 +116,7 @@ const COPY = {
     pain: "躺着腿痛 0–10",
     walk: "一次能走（分钟）",
     guide: "动作指导和注意",
-    poseHint: "对照图片做，痛就减小幅度",
+    poseHint: "对照动图做，痛就减小幅度",
     safety: "安全停",
     safetyBody:
       "力弱、会阴麻、小便变差：停练并联系医生。练完 30 分钟腿痛加重：今天减量。",
@@ -137,7 +137,7 @@ const COPY = {
     pain: "Leg pain while lying down (0–10)",
     walk: "Minutes walked (one bout)",
     guide: "How to do it & cautions",
-    poseHint: "Match the photo. Reduce the range if pain increases.",
+    poseHint: "Match the looping demo. Reduce the range if pain increases.",
     safety: "When to stop",
     safetyBody:
       "Weakness, saddle numbness, or bladder changes: stop and contact a doctor. If leg pain is worse 30 minutes after exercise, cut today’s volume.",
