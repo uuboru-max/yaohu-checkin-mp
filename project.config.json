@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "yaohu-checkin",
   "description": "腰护打卡",
-  "appid": "touristappid",
+  "appid": "wx7ac920656e5c37ae",
   "compileType": "miniprogram",
   "libVersion": "3.7.0",
   "setting": {"es6": true, "minified": true, "enhance": true}
