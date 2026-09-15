@@ -9,7 +9,7 @@
   </view>
   <view class="guide" bindtap="onGuide">{{guide}}</view>
   <view wx:if="{{open}}" class="pose">
-    <image wx:if="{{item.photo}}" src="{{item.photo}}" mode="aspectFill" />
+    <image wx:if="{{item.photo}}" src="{{item.photo}}" mode="aspectFit" />
     <view class="body">
       <view class="hint">{{hint}}</view>
       <view wx:for="{{item.how}}" wx:for-item="step" wx:key="*this" class="step">{{index + 1}}. {{step}}</view>
