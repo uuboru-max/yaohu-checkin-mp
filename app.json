@@ -1,5 +1,10 @@
 {
-  "pages": ["pages/today/today", "pages/moves/moves", "pages/log/log", "pages/me/me"],
+  "pages": [
+    "pages/today/today",
+    "pages/moves/moves",
+    "pages/log/log",
+    "pages/me/me"
+  ],
   "window": {
     "navigationBarBackgroundColor": "#1c4f4a",
     "navigationBarTitleText": "腰护打卡",
@@ -12,10 +17,10 @@
     "backgroundColor": "#fffdf8",
     "borderStyle": "white",
     "list": [
-      {"pagePath": "pages/today/today", "text": "今日", "iconPath": "images/tabs/today_off.png", "selectedIconPath": "images/tabs/today_on.png"},
-      {"pagePath": "pages/moves/moves", "text": "动作", "iconPath": "images/tabs/moves_off.png", "selectedIconPath": "images/tabs/moves_on.png"},
-      {"pagePath": "pages/log/log", "text": "记录", "iconPath": "images/tabs/log_off.png", "selectedIconPath": "images/tabs/log_on.png"},
-      {"pagePath": "pages/me/me", "text": "我的", "iconPath": "images/tabs/me_off.png", "selectedIconPath": "images/tabs/me_on.png"}
+      { "pagePath": "pages/today/today", "text": "今日" },
+      { "pagePath": "pages/moves/moves", "text": "动作" },
+      { "pagePath": "pages/log/log", "text": "记录" },
+      { "pagePath": "pages/me/me", "text": "我的" }
     ]
   },
   "style": "v2",
