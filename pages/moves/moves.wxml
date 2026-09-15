@@ -1,0 +1,4 @@
+<view class="wrap">
+  <view class="banner">{{avoid}}</view>
+  <task-card wx:for="{{tasks}}" wx:key="id" item="{{item}}" guide="{{copy.guide}}" hint="{{copy.poseHint}}" bindtoggle="onToggle" />
+</view>

@@ -1,0 +1,29 @@
+<view class="wrap">
+  <view class="header">
+    <view>
+      <view class="muted">{{copy.tagline}}</view>
+      <view class="title">{{copy.title}}</view>
+    </view>
+    <view class="lang">
+      <view class="lang-btn {{locale === 'zh' ? 'lang-on' : ''}}" data-lang="zh" bindtap="setLang">中</view>
+      <view class="lang-btn {{locale === 'en' ? 'lang-on' : ''}}" data-lang="en" bindtap="setLang">EN</view>
+    </view>
+  </view>
+  <view class="card">
+    <view class="row"><view>{{dateLabel}}</view><view class="primary">{{done}}/7</view></view>
+    <view class="bar"><view class="bar-fill" style="width: {{pct}}%;"></view></view>
+    <view class="grid2">
+      <view class="field">{{copy.pain}}<input class="input" type="number" value="{{pain}}" bindinput="onPain" /></view>
+      <view class="field">{{copy.walk}}<input class="input" type="number" value="{{walk}}" bindinput="onWalk" /></view>
+    </view>
+  </view>
+  <task-card wx:for="{{tasks}}" wx:key="id" item="{{item}}" guide="{{copy.guide}}" hint="{{copy.poseHint}}" bindtoggle="onToggle" />
+  <view class="card">
+    <view class="h2">{{copy.safety}}</view>
+    <view class="warn">{{copy.safetyBody}}</view>
+    <view class="btns">
+      <button class="btn" bindtap="onExport">{{copy.export}}</button>
+      <button class="btn btn-ghost" bindtap="onReset">{{copy.reset}}</button>
+    </view>
+  </view>
+</view>

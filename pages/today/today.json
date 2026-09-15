@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "腰护打卡",
+  "usingComponents": { "task-card": "/components/task-card/task-card" }
+}
