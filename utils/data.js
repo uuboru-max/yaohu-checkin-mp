@@ -34,16 +34,16 @@ const TASKS = [
   {
     id: "ankle",
     photo: PHOTOS.ankle,
-    zh: { name: "勾脚—绷脚", dose: "每边 10 次", how: ["腿伸或微屈。", "脚尖勾向头，小腿后侧轻拉。", "再绷直。"], tip: "右腿麻就减小幅度。" },
+    zh: { name: "勾脚—绷脚", dose: "20 次", how: ["仰卧，双腿伸直。", "脚尖尽量勾向膝盖。", "再绷直、指向前方。"], tip: "右腿麻就减小幅度。也可坐着做，但腰要挺直、不要弓背。" },
     en: {
       name: "Ankle pumps",
-      dose: "10 per side",
+      dose: "20 slow pumps",
       how: [
-        "Keep the leg straight or slightly bent.",
-        "Pull your toes toward your head until you feel a light stretch in the calf.",
-        "Then point your toes away.",
+        "Lie on your back with both legs straight.",
+        "Point your feet toward your knees as far as you can.",
+        "Then point them away from you.",
       ],
-      tip: "Use a smaller range if your right leg is numb.",
+      tip: "Use a smaller range if your right leg is numb. You may sit with legs out — sit tall and do not round your low back.",
     },
   },
   {
