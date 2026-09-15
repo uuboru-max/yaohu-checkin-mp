@@ -1,5 +1,5 @@
 const { COPY } = require("../../utils/data");
-const { load, save } = require("../../utils/store");
+const { load, save, applyTabBar } = require("../../utils/store");
 
 Page({
   data: { copy: COPY.zh, profile: "", locale: "zh" },
@@ -7,6 +7,7 @@ Page({
     const state = load();
     const loc = state.locale === "en" ? "en" : "zh";
     this.setData({ copy: COPY[loc], profile: state.profile, locale: loc });
+    applyTabBar(loc);
   },
   setLang(e) {
     const state = load();
